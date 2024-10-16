@@ -9,13 +9,13 @@ class Controller(object):
         self._model = Model()
 
     def handleNuova(self,e):
-        self._view._txtMrim.value=self.getMmax()
+        self._view._txtTrim.value=self.getTmax()
         self._view._btnProva.disabled = False
         self._view._txtTentativo.disabled = False
         self._view._lvOut.controls.clear()
         self._view._lvOut.controls.append(ft.Text("Indovina il numero.",color="green"))
         self._model.inizializza()
-        self._view._pb.value = self._model._Mrim / self._model._Mmax
+        self._view._pb.value = self._model._Mrim / self._model._Tmax
         self._view.update()
 
     def handleProva(self,e):
@@ -29,13 +29,13 @@ class Controller(object):
             self._view.update()
             return
 
-        mRim, result = self._model.indovina(intTentativo)
-        self._view._txtMrim.value = mRim
-        self._view._pb.value = self._model._Mrim / self._model._Mmax
+        TRim, result = self._model.indovina(intTentativo)
+        self._view._txtTrim.value = TRim
+        self._view._pb.value = self._model._Mrim / self._model._Tmax
         self._view.update()
 
 
-        if mRim == 0:
+        if TRim == 0:
             self._view._btnProva.disabled=True
             self._view._txtTentativo.disabled=True
             self._view._lvOut.controls.append(ft.Text("Hai perso! :-( Il segreto era: "
@@ -60,8 +60,8 @@ class Controller(object):
     def getNmax(self):
         return self._model.NMax
 
-    def getMmax(self):
-        return self._model.MMax
+    def getTmax(self):
+        return self._model.TMax
 
-    def getMrim(self):
-        return self._model.Mrim
+    def getTrim(self):
+        return self._model.Trim

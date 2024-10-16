@@ -16,10 +16,10 @@ class View(object):
         #Row 1
         self._txtNmax = ft.TextField(label="N Max", width=100,
                                      disabled=True, value=self._controller.getNmax())
-        self._txtMmax = ft.TextField(label="Tentativi Max", width=100,
-                                     disabled=True, value=self._controller.getMmax())
-        self._txtMrim = ft.TextField(label="Tentativi Rim", width=100,
-                                     disabled=True, value=self._controller.getMrim())
+        self._txtTmax = ft.TextField(label="Tentativi Max", width=100,
+                                     disabled=True, value=self._controller.getTmax())
+        self._txtTrim = ft.TextField(label="Tentativi Rim", width=100,
+                                     disabled=True, value=self._controller.getTrim())
 
         # row1 = ft.Row([self._txtNmax, self._txtMmax, self._txtMrim],
         #        alignment=ft.MainAxisAlignment.CENTER)
@@ -42,8 +42,8 @@ class View(object):
         self._page.add(
             ft.Row([
                 ft.Container(self._txtNmax, width=150),
-                ft.Container(self._txtMmax, width=150),
-                ft.Container(self._txtMrim, width=150)
+                ft.Container(self._txtTmax, width=150),
+                ft.Container(self._txtTrim, width=150)
             ], alignment=ft.MainAxisAlignment.CENTER),
 
             ft.Row([
